@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "build": "webpack --config webpack.config.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -14,5 +15,12 @@
     "mongodb": "^3.3.3",
     "mongoose": "^5.7.11",
     "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "jquery": "^3.4.1",
+    "knockout": "^3.5.1",
+    "underscore": "^1.9.1",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
   }
 }
