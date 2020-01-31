@@ -18,11 +18,10 @@ cd itg-packs-db/
 Add credentials for the database cluster
 
 Usage once setup:
-```npm install```
-
-```npm install nodemon```
-
-```npm start```
+```
+npm install
+npm install nodemon
+npm start
 
 Navigate to http://localhost:3000/<route>
 Note: our default route is `itg`
