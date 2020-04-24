@@ -12,6 +12,13 @@ router.post('/', function (req, res) {
   //extract data from request
   //create a database entry?
   console.log(req.body);
+  let query = req.body.queryFilters.map((queryFilter) => ({
+    [queryFilter.field]:{
+      '$eq': queryFilter.value
+    }
+  }));
+  query = {'$and': query}
+  console.log(JSON.stringify(query));
   res.status(200).json({message:'ok'});
 });
 
