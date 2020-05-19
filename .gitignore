@@ -38,6 +38,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
+node_modules/
+node_modules
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
@@ -108,7 +110,7 @@ typings/
 # nuxt.js build output
 .nuxt
 
-# react / gatsby 
+# react / gatsby
 public/
 
 # vuepress build output
@@ -124,3 +126,9 @@ public/
 .dynamodb/
 
 # End of https://www.gitignore.io/api/node,macos
+
+creds.json
+frontend/
+bin/
+sample_simfiles.json
+sample_packs.json

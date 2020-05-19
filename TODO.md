@@ -4,3 +4,5 @@
    b. minBpm-maxBpm (either, or both)
    c. Difficulty - exact matching
    d. pack_name
+
+Remove all traces of mongoose

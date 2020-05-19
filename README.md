@@ -3,6 +3,11 @@
 Database Logic and Front-end for [itg-packs-db](https://github.com/lewisisgood/itg-packs-db)
 
 ### Installing
+
+```
+Tested on node version 12.1.0
+```
+
 From the Terminal, clone this repo onto your computer with:
 
 ```
@@ -34,6 +39,7 @@ Note: May have to add other npm modules via npm install `--save` option
 * **Lewis King** - [Github](https://github.com/lewisisgood)
 * **Chandler Wyatt** - [Github](https://github.com/chandlerwyatt)
 * **Gene Peters** - [Github](https://github.com/gene-telligent)
+* **Ryan Graham** - [Github](https://github.com/ryanxgraham)
 
 ## Acknowledgments
 Refer to this post to see how I got this far:

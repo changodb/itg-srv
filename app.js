@@ -3,13 +3,18 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-var db = require('./db');
-const uri = 'mongodb+srv://itg-user:itg-pass@toxmaxbot-bazz1.mongodb.net/itg?retryWrites=true&w=majority';
+var db = require('./mongo');
+
 
 const indexRouter = require('./routes/index');
 const searchRouter = require('./routes/search');
 
 const app = express();
+
+const fs = require('fs')
+
+const credsPath = './creds.json';
+const parsed = JSON.parse(fs.readFileSync(credsPath, 'UTF-8'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -23,8 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Make our db accessible to our router
 app.use(function(req, res, next){
-    await db.connect(uri);
-    next();
+    db.connect(parsed.mongoUrl, next);
 });
 
 app.use('/', indexRouter);

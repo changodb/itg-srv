@@ -1,41 +1,59 @@
 const express = require('express');
 const router = express.Router();
 
+const mongo = require('../mongo');
 const models = require('../models');
 const Simfile = models.Simfile;
 
 
-/* GET simfile data given parameters*/
-router.get('/', function(req, res) {
-    const filter = {};
-    if (req.query.name) {
-        filter.song_name = req.query.name;
-    };
-    if (req.query.artist) {
-        filter.song_artist = req.query.artist;
-    };
-    if (req.query.minBpm) {
-        filter.bpm = filter.bpm || {};
-        filter.bpm.$gte = Number(req.query.minBpm);
-    };
-    if (req.query.maxBpm) {
-        filter.bpm = filter.bpm || {};
-        filter.bpm.$lte = Number(req.query.maxBpm);
-    };
+/*POST endpoint */
 
-    const db = req.db;
-    Simfile.find(filter)
-        .lean()
-        .exec((err, simfiles) => {
-            if (err) {
-                res.json({
-                    msg: "Error",
-                    err: err
-                });
-            } else {
-                res.json(simfiles);
-            }
-        });
+// construct post endpoint
+router.post('/', function (req, res) {
+  const filter = {};
+  // construct filter
+  if (req.body.name) {
+    filter.song_name = req.body.name;
+  };
+  if (req.body.artist) {
+    filter.song_artist = req.body.artist;
+  };
+  if (req.body.minBpm) {
+    filter.bpm = filter.bpm || {};
+      filter.bpm.$gte = Number(req.body.minBpm);
+  };
+  if (req.body.maxBpm) {
+    filter.bpm = filter.bpm || {};
+    filter.bpm.$lte = Number(req.body.maxBpm);
+  };
+  console.log("filter:", filter);
+
+  // get a client that can connect to the db
+  const client = mongo.get();
+
+  // get the itg db from the client 
+  const db = client.db('itg');
+
+  // get the simfiles collection from the db
+  const coll = db.collection('simfiles');
+
+  // perform a find on the simfiles collection
+  // limit to 4 results - for initial testing
+  // invoke toArray to output the cursor contents as an array
+  function getMatches() {
+    return coll.find(filter).limit(4).toArray();
+  }
+
+  // define asynchronous function to get the query results
+  // send the array of results to the client
+  async function asyncGet() {
+    const matches = await getMatches();
+    res.send(matches);
+  }
+
+  // invoke the async function that triggers the database operations
+  // and sends the API response to the client
+  asyncGet();
 });
 
 module.exports = router;
