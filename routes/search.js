@@ -5,12 +5,13 @@ const mongo = require('../mongo');
 const models = require('../models');
 const Simfile = models.Simfile;
 
-
 /*POST endpoint */
 
 // construct post endpoint
 router.post('/', function (req, res) {
-  const filter = {};
+  const filter = {
+    '$and':req.body
+  }
   // construct filter
   if (req.body.name) {
     filter.song_name = req.body.name;
