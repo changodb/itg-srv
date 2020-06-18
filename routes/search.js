@@ -10,28 +10,21 @@ const Simfile = models.Simfile;
 
 // construct post endpoint
 router.post('/', function (req, res) {
-  const filter = {};
+  const filter = req.body;
   // construct filter
-  if (req.body.name) {
-    filter.song_name = req.body.name;
-  };
-  if (req.body.artist) {
-    filter.song_artist = req.body.artist;
-  };
-  if (req.body.minBpm) {
-    filter.bpm = filter.bpm || {};
-      filter.bpm.$gte = Number(req.body.minBpm);
-  };
-  if (req.body.maxBpm) {
-    filter.bpm = filter.bpm || {};
-    filter.bpm.$lte = Number(req.body.maxBpm);
-  };
+  // if (req.body.name) {
+  //   filter.song_name = req.body.name;
+  // };
+  // if (req.body.artist) {
+  //   filter.song_artist = req.body.artist;
+  // };
+
   console.log("filter:", filter);
 
   // get a client that can connect to the db
   const client = mongo.get();
 
-  // get the itg db from the client 
+  // get the itg db from the client
   const db = client.db('itg');
 
   // get the simfiles collection from the db
