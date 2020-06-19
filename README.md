@@ -1,6 +1,6 @@
 # itg-srv
 
-Database Logic and Front-end for [itg-packs-db](https://github.com/lewisisgood/itg-packs-db)
+Database Logic for [itg-packs-db](https://github.com/lewisisgood/itg-packs-db)
 
 ### Installing
 
@@ -17,7 +17,7 @@ git clone https://github.com/changodb/itg-srv
 Move into the new directory:
 
 ```
-cd itg-packs-db/
+cd itg-srv/
 ```
 
 Add credentials for the database cluster
@@ -29,7 +29,7 @@ npm install nodemon
 npm start
 ```
 
-Navigate to http://localhost:3000/<route>
+Navigate to http://localhost:3001/<route>
 Note: our default route is `itg`
 
 Note: May have to add other npm modules via npm install `--save` option
