@@ -17,6 +17,8 @@ steps:
   - 'us-central1'
   - '--platform'
   - 'managed'
+  - '--update-env-vars'
+  - 'NODE_ENV=production'
   - '--allow-unauthenticated'
 images:
   - 'gcr.io/$PROJECT_ID/api'
