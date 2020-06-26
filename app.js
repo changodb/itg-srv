@@ -11,7 +11,7 @@ const searchRouter = require('./routes/search');
 
 const app = express();
 if (process.env.NODE_ENV === 'production') {
-   var corsOrigin = 'https://itg-srv.herokuapp.com/';
+   var corsOrigin = 'https://www.fitupyourstyle.com/';
 } else {
    var corsOrigin = 'http://localhost:3001';
 }
@@ -39,9 +39,6 @@ app.use(function(req, res, next){
 });
 
 // MAIN APP ROUTES
-// Static files should be served from root
-let _path = path.join(__dirname, 'frontend', 'build');
-app.use(express.static(path.join(__dirname, 'frontend', 'build')));
 app.use('/search', searchRouter);
 
 
