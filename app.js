@@ -6,9 +6,6 @@ const logger = require('morgan');
 var db = require('./mongo');
 const cors = require('cors');
 
-
-const searchRouter = require('./routes/search');
-
 const app = express();
 if (process.env.NODE_ENV === 'production') {
    var corsOrigin = 'https://www.fitupyourstyle.com/';
@@ -39,7 +36,10 @@ app.use(function(req, res, next){
 });
 
 // MAIN APP ROUTES
+const searchRouter = require('./routes/search');
 app.use('/search', searchRouter);
+const pingRouter = require('./routes/ping');
+app.use('/ping', pingRouter);
 
 
 module.exports = app;
