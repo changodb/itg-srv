@@ -11,7 +11,7 @@ const searchRouter = require('./routes/search');
 
 const app = express();
 if (process.env.NODE_ENV === 'production') {
-   var corsOrigin = 'http://my-app.heroku.com';
+   var corsOrigin = 'https://itg-srv.herokuapp.com/';
 } else {
    var corsOrigin = 'http://localhost:3001';
 }
