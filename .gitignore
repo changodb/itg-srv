@@ -124,7 +124,7 @@ typings/
 
 # End of https://www.gitignore.io/api/node,macos
 
-creds.json
+.env
 sample_simfiles.json
 sample_packs.json
 frontend/node_modules/

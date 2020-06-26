@@ -22,8 +22,10 @@ const corsOptions = {
 
 const fs = require('fs')
 
-const credsPath = './creds.json';
-const parsed = JSON.parse(fs.readFileSync(credsPath, 'UTF-8'));
+if (process.env.NODE_ENV !== 'production') {
+   require('dotenv').config();
+}
+const mongoUrl = process.env.MONGO_URL;
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -39,7 +41,6 @@ app.use(function(req, res, next){
 // MAIN APP ROUTES
 // Static files should be served from root
 let _path = path.join(__dirname, 'frontend', 'build');
-console.log(_path);
 app.use(express.static(path.join(__dirname, 'frontend', 'build')));
 app.use('/search', searchRouter);
 
