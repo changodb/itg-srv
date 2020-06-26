@@ -1,0 +1,414 @@
+body {
+    height: 100%;
+    color: #5200AC;
+    background: linear-gradient(0deg, #7c00f4 0%, #280063 80%);
+    /* border: 1px solid red; */
+}
+/* Custon Classes */
+.header {
+    height: 164px;
+    width: 474px;
+}
+.bottomContainer {
+    height: 100vh;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    overflow-y: scroll;
+    /* border: 1px solid red; */
+
+}
+.value-input {
+    /* border: 1px solid red; */
+}
+.filler {
+    display: inline;
+    width: 24%
+}
+.topContainer {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-flow: row;
+    width: auto;
+    height: 20%;
+    max-height: 164px;
+    justify-content: ;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    z-index: 5;
+}
+.queryContainer {
+    /* border: 5px solid purple; */
+    display: flex;
+    width: 33rem;
+    height: 20%;
+    justify-content: space-evenly;
+}
+.queryFilters {
+    padding-left: 25px;
+    display: flex;
+    /* border: 1px solid yellow; */
+    justify-content: flex-start;
+    width: inherit;
+    height: 164px;
+    overflow-y: auto;
+
+}
+.query {
+    /* border: 1px solid red; */
+    }
+.queryField {
+    /* border: 1px solid green; */
+}
+.fieldSelect {
+    /* border: 1px solid yellow; */
+    width: 133px;
+}
+.valueInput {
+    /* border: 1px solid red; */
+    width: auto;
+
+}
+.submitButton {
+    /* border: 1px solid red; */
+    color: #DBB9FC;
+    background-color: inherit;
+    position: relative;
+    align-self: flex-start;
+    margin-top: 25px;
+    box-shadow: 0rem .2rem 1rem .1rem #140030;
+}
+.submitButton:hover {
+    background-color: #7c00f4;
+}
+.resultsContainer {
+    width: 90vw;
+
+    /* border: 1px solid red; */
+}
+.difficultiesPanel {
+    display: flex;
+    /* border: 1px solid red; */
+    background-color: inherit;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-start;
+}
+
+.summaryPanel {
+    /* border: 1px solid red; */
+    align-self: flex-start;
+    margin: 1px;
+    padding: 1px;
+}
+.detailsPanel {
+    /* border: 1px solid red; */
+    background-color: inherit;
+    margin: 1px;
+    padding: 1px;
+}
+/* Mui Classes */
+.MuiListItem-gutters {
+    padding: 2px;
+}
+.MuiExpansionPanelSummary-expandIcon {
+    padding-left: 1rem;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-right: 1px;
+    color: #DBB9FC
+
+}
+.MuiTypography-body1 {
+    font-size: medium;
+    font-weight: 400;
+    line-height: 1;
+    color: #DBB9FC;
+}
+.MuiTypography-body2 {
+    font-size: medium;
+    font-weight: 400;
+    line-height: 1.1;
+    color: #DBB9FC;
+}
+.MuiSvgIcon-root {
+    color: #DBB9FC;
+}
+.MuiTypography-h6 {
+    font-weight: bold;
+    color: #DBB9FC;
+}
+.MuiTableCell-root {
+    color: #DBB9FC;
+    padding: 4px;
+}
+.MuiInputBase-root {
+    color: #DBB9FC
+}
+@media screen and (max-width: 600px) {
+    body {
+        height:100%;
+        width: 100%;
+        font-size: x-small
+        /* border: 1px solid red; */
+
+    }
+    .MuiTypography-body1 {
+    font-size: x-small;
+    font-weight: 300;
+    line-height: 1;
+    }
+    .MuiTypography-h5 {
+    font-size: x-small;
+    font-weight: bold;
+    }
+    .MuiExpansionPanelSummary-expandIcon {
+        padding-left: .4rem;
+    }
+    .MuiTablePagination-actions {
+        margin: 0px;
+    }
+    /* Custon Classes */
+    .bottomContainer {
+        display: flex;
+        flex-flow: column;
+        width: auto;
+        height: 100vh;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top:3.2rem;
+        margin-top: 3.2rem;
+        /* border: 1px solid red; */
+    }
+    .header {
+        height: 100%;
+        width: 100%;
+    }
+    .topContainer {
+        /* border: 1px solid red; */
+        display: flex;
+        flex-flow: row wrap;
+        width: auto;
+        height: 20%;
+        max-height: 164px;
+        justify-content: space-between;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-bottom: 10px
+    }
+    .queryContainer {
+        /* border: 5px solid purple; */
+        display: flex;
+        flex-flow: column;
+        width: 100%;
+        height: 20%;
+        justify-content: space-evenly;
+        padding-bottom: 10px
+    }
+    .queryFilters {
+        padding-left: 10px;
+        display: flex;
+        /* border: 1px solid yellow; */
+        justify-content: flex-start;
+        width: auto;
+        height: 82px;
+        overflow-y: auto;
+
+    }
+    .query {
+        /* border: 1px solid red; */
+        }
+    .queryField {
+        /* border: 1px solid green; */
+    }
+    .fieldSelect {
+        /* border: 1px solid yellow; */
+        width: 110px;
+    }
+    .valueInput {
+        /* border: 1px solid red; */
+        width: 175px;
+
+    }
+    .submitButton {
+        /* border: 1px solid red; */
+        background-color: inherit;
+        position: relative;
+        align-self: center;
+        margin-top: 0px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+    .resultsContainer {
+        width: auto;
+        /* border: 1px solid red; */
+    }
+    .difficultiesPanel {
+        display: inline-flex;
+        /* border: 1px solid red; */
+        background-color: inherit;
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+        justify-content: space-between;
+    }
+    .detailsPanel {
+        /* border: 1px solid red; */
+        background-color: inherit;
+        margin: .1rem;
+        padding: .1rem;
+
+    }
+    .MuiToolbar-gutters {
+        padding: 1px;
+    }
+    .MuiTableCell-root {
+        padding: 4px;
+        margin: 2px;
+    }
+    .MuiExpansionPanelSummary-root.Mui-expanded {
+        min-height: inherit;
+    }
+    .MuiTablePagination-selectRoot {
+        margin-right: 0px;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 960px) {
+    .MuiTypography-root-body1 {
+    font-size: small;
+    font-weight: 400;
+    line-height: 1;
+    }
+    body {
+        height:100%;
+        width: 100%;
+        /* border: 1px solid red; */
+
+    }
+    .MuiTypography-body1 {
+    font-size: medium;
+    font-weight: 300;
+    line-height: 1;
+    }
+    .MuiTypography-h5 {
+    font-size: medium;
+    font-weight: bold;
+    }
+    /* Custon Classes */
+    .bottomContainer {
+        height: 100vh;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 100px;
+        /* border: 1px solid red; */
+    }
+
+    .topContainer {
+        /* border: 1px solid red; */
+        display: flex;
+        flex-flow: row wrap;
+        width: auto;
+        background-color: #280063;
+        height: 20%;
+        max-height: 164px;
+        justify-content: center;
+        align-items: center;
+    }
+    .queryContainer {
+        /* border: 5px solid purple; */
+        display: flex;
+        flex-flow: row;
+        width: 600px;
+        height: 20%;
+        justify-content: space-evenly;
+    }
+    .queryFilters {
+        padding-left: 10px;
+        display: flex;
+        /* border: 1px solid yellow; */
+        justify-content: flex-start;
+        width: inherit;
+        height: 82px;
+        overflow-y: auto;
+    }
+    .submitButton {
+        /* border: 1px solid red; */
+        background-color: inherit;
+        position: relative;
+        align-self: center;
+        margin-top: 0px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+    .resultsContainer {
+        width: auto;
+        /* border: 1px solid red; */
+    }
+    .difficultiesPanel {
+        display: inline-flex;
+        /* border: 1px solid red; */
+        background-color: inherit;
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+
+    }
+    .MuiExpansionPanelSummary-expandIcon {
+        padding: 1px;
+
+    }
+    .detailsPanel {
+        /* border: 1px solid red; */
+        background-color: inherit;
+        margin: .5rem;
+        padding: .5rem;
+    }
+}
+
+@media screen and (min-width: 961px) and (max-width: 1280px){
+    .MuiTypography-root-body1 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.2;
+    }
+    .topContainer {
+        /* border: 1px solid red; */
+        display: flex;
+        flex-flow: row;
+        width: auto;
+        height: 20%;
+        max-height: 164px;
+        justify-content: flex-start;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 10px
+    }
+
+    .bottomContainer {
+        justify-content: center;
+        width: auto;
+        height: 100vh;
+        padding-left: auto;
+        padding-right: auto;
+        margin-top: 100px;
+        /* border: 1px solid red; */
+    }
+    .filler {
+        display: none;
+    }
+    .resultsContainer {
+        width: auto;
+        align-self: center;
+        /* border: 1px solid red; */
+    }
+    .submitButton {
+        /* border: 1px solid red; */
+        color: #DBB9FC;
+        background-color: inherit;
+        position: relative;
+        align-self: flex-start;
+        margin-top: 25px;
+        box-shadow: 0rem .2rem 1rem .1rem #140030;
+    }
+}
