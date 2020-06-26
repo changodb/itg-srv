@@ -17,9 +17,10 @@ const corsOptions = {
 
 const fs = require('fs')
 
+var mongoUrl;
 if (process.env.NODE_ENV !== 'production') {
    require('dotenv').config();
-   var mongoUrl = process.env.MONGO_URL;
+   mongoUrl = process.env.MONGO_URL;
 }
 if (process.env.NODE_ENV === 'production') {
    const {SecretManagerServiceClient} = require('@google-cloud/secret-manager');
@@ -33,8 +34,10 @@ if (process.env.NODE_ENV === 'production') {
       // Extract the payload as a string.
       const payload = version.payload.data.toString();
       console.log(payload);
+      mongoUrl = payload;
    }
-   var mongoUrl = payload;
+   
+   accessSecretVersion();
 }
 
 
