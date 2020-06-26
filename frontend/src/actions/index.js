@@ -17,7 +17,7 @@ export const backendQueryError = createAction('backend/query/error');
 
 export const submitQuery = (queryFilters) => (dispatch) => {
     dispatch(backendQueryStarted());
-    let url ='http://localhost:3001/search/';
+    let url ='search/';
     let mappedFilters = Object.fromEntries(queryFilters.map((filter) => {
         let fieldName = QUERY_FIELDS_INVERTED[filter.field];
         return [fieldName, filter.value]
