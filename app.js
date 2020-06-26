@@ -10,8 +10,14 @@ const cors = require('cors');
 const searchRouter = require('./routes/search');
 
 const app = express();
+if (process.env.NODE_ENV === 'production') {
+   var corsOrigin = 'http://my-app.heroku.com';
+} else {
+   var corsOrigin = 'http://localhost:3001';
+}
+
 const corsOptions = {
-    origin: 'http://localhost:3000'
+    origin: corsOrigin
 };
 
 const fs = require('fs')
