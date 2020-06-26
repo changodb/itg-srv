@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "build": "webpack --config webpack.config.js"
+    "postinstall": "cd ./frontend && npm install && node scripts/build.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -17,12 +17,5 @@
     "mongoose": "^5.7.11",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.4"
-  },
-  "devDependencies": {
-    "jquery": "^3.4.1",
-    "knockout": "^3.5.1",
-    "underscore": "^1.9.1",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10"
   }
 }

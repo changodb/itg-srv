@@ -130,3 +130,5 @@ public/
 creds.json
 sample_simfiles.json
 sample_packs.json
+frontend/node_modules/
+frontend/build/
