@@ -50,6 +50,8 @@ app.use(cors(corsOptions));
 app.options('*', cors(corsOptions))
 // Make our db accessible to our router
 app.use(function(req, res, next){
+   console.log("attempting to connect to:");
+   console.log(mongoUrl);
     db.connect(mongoUrl, next);
 });
 
