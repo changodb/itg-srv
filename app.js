@@ -1,6 +1,4 @@
-const createError = require('http-errors');
 const express = require('express');
-const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 var db = require('./mongo');
@@ -35,11 +33,9 @@ app.use(function(req, res, next){
     db.connect(mongoUrl, next);
 });
 
-// MAIN APP ROUTES
-const searchRouter = require('./routes/search');
-app.use('/search', searchRouter);
-const pingRouter = require('./routes/ping');
-app.use('/ping', pingRouter);
+// MAIN APP ROUTE ENTRYPOINT
+const routes = require('./routes');
+app.use('/api', routes);
 
 
 module.exports = app;
