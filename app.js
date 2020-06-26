@@ -52,7 +52,7 @@ app.use(function(req, res, next){
 
 // MAIN APP ROUTE ENTRYPOINT
 const routes = require('./routes');
-app.use('/api', routes);
+app.use(routes);
 
 
 module.exports = app;
