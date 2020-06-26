@@ -56,8 +56,6 @@ router.post('/', function (req, res) {
   if (req.body.maxDiff !== undefined) {
       pipeline.push(generateMatchAggregationStage({ $lte: parseInt(req.body.maxDiff) }, "difficulties", "$elemMatch"));
   }
-  console.log(req.body)
-  console.log("pipeline:", JSON.stringify(pipeline));
 
   // get a client that can connect to the db
   const client = mongo.get();

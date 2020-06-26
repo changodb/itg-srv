@@ -17,11 +17,13 @@ const corsOptions = {
 
 const fs = require('fs')
 
-var mongoUrl;
 if (process.env.NODE_ENV !== 'production') {
    require('dotenv').config();
-   mongoUrl = process.env.MONGO_URL;
 }
+
+const mongoUrl = process.env.MONGO_URL;
+
+/* TODO: FIX THIS, Gene
 if (process.env.NODE_ENV === 'production') {
    const {SecretManagerServiceClient} = require('@google-cloud/secret-manager');
    const client = new SecretManagerServiceClient();
@@ -40,6 +42,8 @@ if (process.env.NODE_ENV === 'production') {
    accessSecretVersion();
 }
 
+*/
+
 
 
 app.use(logger('dev'));
@@ -50,8 +54,6 @@ app.use(cors(corsOptions));
 app.options('*', cors(corsOptions))
 // Make our db accessible to our router
 app.use(function(req, res, next){
-   console.log("attempting to connect to:");
-   console.log(mongoUrl);
     db.connect(mongoUrl, next);
 });
 

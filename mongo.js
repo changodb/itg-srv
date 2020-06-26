@@ -6,10 +6,8 @@ var state = {
 
 exports.connect = function(url, done) {
     if (state.db) return done()
-    console.log(url);
 
     MongoClient.connect(url, function(err, db) {
-        console.log(url);
         if(err) return done(err)
         state.db = db
         done()
