@@ -20,7 +20,8 @@ Move into the new directory:
 cd itg-srv/
 ```
 
-Add credentials for the database cluster
+Add credentials for the database cluster -- set MONGO_URL in .env to the full URL, ie:
+`mongodb+srv://user:pass@cluster.mongodb.net/itg?retryWrites=true&w=majority`
 
 Usage once setup:
 ```
