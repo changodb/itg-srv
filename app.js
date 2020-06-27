@@ -6,7 +6,8 @@ const cors = require('cors');
 
 const app = express();
 if (process.env.NODE_ENV === 'production') {
-   var corsOrigin = ['https://www.fitupyourstyle.com', 'https://fitupyourstyle.com'];
+   // var corsOrigin = ['https://fitupyourstyle.com', 'https://www.fitupyourstyle.com'];
+   var corsOrigin = 'https://fitupyourstyle.com';
 } else {
    var corsOrigin = 'http://localhost:3001';
 }
