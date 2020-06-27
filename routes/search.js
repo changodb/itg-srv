@@ -64,7 +64,7 @@ router.post('/', function (req, res) {
   const db = client.db('itg');
 
   // get the simfiles collection from the db
-  const coll = db.collection('simfilesNewSchema');
+  const coll = db.collection('simfiles');
 
   coll.aggregate(pipeline).toArray((err, docs) => {
       if (err !== null) {
