@@ -13,7 +13,7 @@ const generateSearchAggregationStage = (query, path) => (
                 query,
                 path,
                 fuzzy: {
-                    maxEdits: 2
+                    maxEdits: 1
                 }
             }
         }
