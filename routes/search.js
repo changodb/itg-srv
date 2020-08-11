@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 
 const mongo = require('../mongo');
-const models = require('../models');
-const Simfile = models.Simfile;
 
 
 const generateSearchAggregationStage = (query, path) => (
