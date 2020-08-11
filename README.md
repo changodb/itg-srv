@@ -26,7 +26,6 @@ Add credentials for the database cluster -- set MONGO_URL in .env to the full UR
 Usage once setup:
 ```
 npm install
-npm install nodemon
 npm start
 ```
 
@@ -34,8 +33,7 @@ Navigate to http://localhost:3001/<route>
 Note: our default route is `itg`
   
 ### Notes
-* May have to add other npm modules via npm install `--save` option
-* The front-end code in this repo is obsolete. Please refer to [this repo](https://github.com/changodb/itg-frontend/) for front-end code and [this repo](https://github.com/lewisisgood/itg-packs-db/) for parser code.
+* Please refer to [this repo](https://github.com/changodb/itg-frontend/) for front-end code and [this repo](https://github.com/lewisisgood/itg-packs-db/) for parser code.
 
 ## Authors
 
