@@ -68,7 +68,7 @@ router.post('/', function (req, res) {
       if (err !== null) {
           console.error(err);
       } else {
-          console.log(docs);
+          console.log("Received " + docs.length + " results.");
           res.send(docs);
       }
   });

@@ -14,7 +14,6 @@ if (process.env.NODE_ENV === 'production') {
 const corsOptions = {
     origin: corsOrigin
 };
-console.log(corsOptions);
 
 const fs = require('fs')
 
