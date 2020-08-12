@@ -6,20 +6,16 @@ const cors = require('cors');
 
 const app = express();
 if (process.env.NODE_ENV === 'production') {
-   var corsOrigin = ['https://fitupyourstyle.com', 'https://www.fitupyourstyle.com', 'http://localhost:3000'];
+   var corsOrigin = ['https://fitupyourstyle.com', 'https://www.fitupyourstyle.com'];
 } else {
-   var corsOrigin = 'http://localhost:3001';
+   console.warn('Running in development mode!');
+   require('dotenv').config();
+   var corsOrigin = 'http://localhost:3000';
 }
 
 const corsOptions = {
     origin: corsOrigin
 };
-
-const fs = require('fs')
-
-if (process.env.NODE_ENV !== 'production') {
-   require('dotenv').config();
-}
 
 const mongoUrl = process.env.MONGO_URL;
 
