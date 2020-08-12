@@ -26,7 +26,7 @@ Add credentials for the database cluster -- set MONGO_URL in .env to the full UR
 Usage once setup:
 ```
 npm install
-npm start
+npm start-dev
 ```
 
 Navigate to http://localhost:3001/<route>
