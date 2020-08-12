@@ -21,16 +21,17 @@ cd itg-srv/
 ```
 
 Add credentials for the database cluster -- set MONGO_URL in .env to the full URL, ie:
-`echo 'MONGO_URL=mongodb+srv://MONGO_USER:MONGO_PASS@cluster.mongodb.net/itg?retryWrites=true&w=majority' > .env`
+```
+echo 'MONGO_URL=mongodb+srv://my_user:my_password@cluster.mongodb.net/itg?retryWrites=true&w=majority' > .env
+```
 
 Usage once setup:
 ```
 npm install
-npm start-dev
+npm run start-dev
 ```
 
 Navigate to http://localhost:3001/<route>
-Note: our default route is `itg`
   
 ### Notes
 * Please refer to [this repo](https://github.com/changodb/itg-frontend/) for front-end code and [this repo](https://github.com/lewisisgood/itg-packs-db/) for parser code.
