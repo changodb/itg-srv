@@ -3,19 +3,36 @@ const router = express.Router();
 
 const mongo = require('../mongo');
 
+const MAX_SEARCH_RESULTS = 1000;
 
-const generateSearchAggregationStage = (query, path) => (
-    {
-        $search: {
-            text: {
-                query,
-                path,
-                fuzzy: {
-                    maxEdits: 1
-                }
-            }
-        }
+const _generateClauseForSearchAggregation = (query, path) => (
+  {
+    text: {
+      query,
+      path,
+      fuzzy: {
+        maxEdits: 1
+      }
     }
+  }
+)
+
+
+const generateSingleSearchAggregationStage = (query, path) => (
+    {
+        $search: _generateClauseForSearchAggregation(query, path)
+    }
+);
+
+const generateMultiSearchAggregationStage = (searches) => (
+  {
+    $search: {
+      compound: {
+        should: searches.map(({ query, path }) => _generateClauseForSearchAggregation(query, path)),
+        minimumShouldMatch: 1
+      }
+    }
+  }
 );
 
 const generateMatchAggregationStage = (value, path, operation) => (
@@ -33,15 +50,24 @@ const generateMatchAggregationStage = (value, path, operation) => (
 // construct post endpoint
 router.post('/', function (req, res) {
   const pipeline = [];
+  const textSearches = [];
   if (req.body.artist !== undefined) {
-      pipeline.push(generateSearchAggregationStage(req.body.artist, "artist"));
+      textSearches.push({ query: req.body.artist, path: "artist" });
   }
   if (req.body.name !== undefined) {
-      pipeline.push(generateSearchAggregationStage(req.body.name, "name"));
+      textSearches.push({ query: req.body.name, path: "name" });
   }
   if (req.body.packName !== undefined) {
-      pipeline.push(generateSearchAggregationStage(req.body.packName, "pack.name"));
+      textSearches.push({ query: req.body.packName, path: "pack.name" });
   }
+
+  if (textSearches.length == 1) {
+    pipeline.push(generateSingleSearchAggregationStage(textSearches[0].query, textSearches[0].path));
+  }
+  else if (textSearches.length > 1) {
+    pipeline.push(generateMultiSearchAggregationStage(textSearches));
+  }
+
   if (req.body.minBpm !== undefined) {
       pipeline.push(generateMatchAggregationStage(parseInt(req.body.minBpm), "bpm", "$gte"));
   }
@@ -54,6 +80,29 @@ router.post('/', function (req, res) {
   if (req.body.maxDiff !== undefined) {
       pipeline.push(generateMatchAggregationStage({ $lte: parseInt(req.body.maxDiff) }, "difficulties", "$elemMatch"));
   }
+  pipeline.push(
+    {
+      $project: {
+        artist: 1,
+        name: 1,
+        pack: 1,
+        difficultyMap: 1,
+        game: 1,
+        score: {$meta: "searchScore"}}
+    }
+  );
+  pipeline.push(
+    {
+      $sort: {
+        score: -1
+      }
+    }
+  );
+  pipeline.push(
+    {
+      $limit: MAX_SEARCH_RESULTS
+    }
+  );
 
   if (pipeline.length == 0) {
     res.send([]);
