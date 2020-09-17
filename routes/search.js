@@ -3,6 +3,8 @@ const router = express.Router();
 
 const mongo = require('../mongo');
 
+const MAX_SEARCH_RESULTS = 1000;
+
 const _generateClauseForSearchAggregation = (query, path) => (
   {
     text: {
@@ -87,6 +89,18 @@ router.post('/', function (req, res) {
         difficultyMap: 1,
         game: 1,
         score: {$meta: "searchScore"}}
+    }
+  );
+  pipeline.push(
+    {
+      $sort: {
+        score: -1
+      }
+    }
+  );
+  pipeline.push(
+    {
+      $limit: MAX_SEARCH_RESULTS
     }
   );
 
