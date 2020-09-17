@@ -88,6 +88,7 @@ router.post('/', function (req, res) {
         pack: 1,
         difficultyMap: 1,
         game: 1,
+        bpm: 1,
         score: {$meta: "searchScore"}}
     }
   );
